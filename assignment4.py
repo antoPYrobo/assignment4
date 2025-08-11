@@ -1,10 +1,12 @@
 req_file = "sample.txt"
 try:
-  var = open(req_file,"r")
-  content = var.read()
-  print(content)
-  var.close()
+    with open(req_file, 'r') as file:
+        print("Reading file content:\n")
+        for index, line in enumerate(file):
+            print(f"Line {index+1}: {line.strip()}")
+
 except: FileNotFoundError, print("Error: The file "+req_file+" was not found.")
+
 
 
 text_st = input("Enter text to write to the file: ")
